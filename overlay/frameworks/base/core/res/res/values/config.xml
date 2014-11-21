@@ -288,4 +288,9 @@
     
     <!-- Boolean indicating if current platform supports bluetooth wide band speech -->
     <bool name="config_bluetooth_wide_band_speech">false</bool>
+
+    <!-- Enable the option to check proximity sensor when deciding whether to turn the screen on
+         NOTE ! - Enable for devices that have a fast response proximity sensor -->	
+    <bool name="config_proximityCheckOnWake">true</bool>
+
 </resources>
