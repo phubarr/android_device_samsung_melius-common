@@ -65,14 +65,16 @@ TW_BRIGHTNESS_PATH := "sys/devices/platform/mipi_novatek_nt35596.2049/lcd/panel/
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/melius-common/bluetooth
 
-# Use seperate speakerphone device
-BOARD_USES_SEPERATED_VOICE_SPEAKER := true
-
-# Use seperate devices for VOIP
-BOARD_USES_SEPERATED_VOIP := true
-
-# Use USB Dock Audio
+# Audio
+BOARD_HAVE_SAMSUNG_AUDIO := true
 BOARD_HAVE_DOCK_USBAUDIO := true
+QCOM_CSDCLIENT_ENABLED := false
+BOARD_USES_LEGACY_ALSA_AUDIO := true
+BOARD_USES_FLUENCE_INCALL := true
+BOARD_USES_FLUENCE_FOR_VOIP := true
+BOARD_USES_SEPERATED_AUDIO_INPUT := true
+BOARD_USES_SEPERATED_VOICE_SPEAKER := true
+BOARD_USES_SEPERATED_VOIP := true
 
 # Allow suspend in charge mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
