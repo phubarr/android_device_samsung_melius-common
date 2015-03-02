@@ -47,20 +47,43 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1572864000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 5821660160
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-# TWRP specific build flags
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+#TWRP
+TARGET_RECOVERY_FSTAB := device/samsung/melius-common/multirom/twrp.fstab
 DEVICE_RESOLUTION := 720x1280
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := true
 TW_INTERNAL_STORAGE_PATH := "/data/media/0"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
-TARGET_USERIMAGES_USE_F2FS := true
-TW_NO_SCREEN_TIMEOUT := true
+TW_INCLUDE_FUSE_EXFAT := true
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_SAMSUNG := true
+TW_CRYPTO_FS_TYPE := "ext4"
+TW_CRYPTO_REAL_BLKDEV := "/dev/block/mmcblk0p23"
+TW_CRYPTO_MNT_POINT := "/data"
+TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,noauto_da_alloc,discard,journal_async_commit,errors=panic wait,check,encryptable=footer"
+TW_CRYPTO_FS_FLAGS := "0x00000406"
+TW_CRYPTO_KEY_LOC := "footer"
+TW_BRIGHTNESS_PATH := "/sys/devices/platform/msm_fb.526337/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
-TW_BRIGHTNESS_PATH := "sys/devices/platform/mipi_novatek_nt35596.2049/lcd/panel/panel/brightness"
+TW_NO_SCREEN_TIMEOUT := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+
+# MultiROM config. MultiROM also uses parts of TWRP config
+MR_INPUT_TYPE := type_b
+MR_INIT_DEVICES := device/samsung/melius-common/multirom/mr_init_devices.c
+MR_DPI := xhdpi
+MR_DPI_FONT := 240
+MR_FSTAB := device/samsung/melius-common/multirom/twrp.fstab
+MR_KEXEC_MEM_MIN := 0x85000000
+MR_USE_MROM_FSTAB := true
+MR_DEVICE_HOOKS := device/samsung/melius-common/multirom/mr_hooks.c
+MR_DEVICE_HOOKS_VER := 1
+
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/melius-common/bluetooth
