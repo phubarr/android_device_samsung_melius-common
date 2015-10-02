@@ -17,10 +17,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_short_ons_1="" \
     persist.rild.nitz_short_ons_2="" \
     persist.rild.nitz_short_ons_3="" \
+    persist.data.netmgrd.qos.enable=false \
+    persist.radio.add_power_save=1 \
+    persist.radio.use_se_table_only=1 \
+    persist.radio.fill_eons=1 \
+    persist.radio.prefer_spn=0 \
     ril.subscription.types=NV,RUIM \
+    ro.use_data_netmgrd=true \
     ro.telephony.mms_data_profile=5 \
-    ro.telephony.ril_class=MeliusRIL \
-    persist.radio.add_power_save=1
+    ro.telephony.ril_class=MeliusRIL
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
